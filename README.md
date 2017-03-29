@@ -35,7 +35,7 @@ Register the service provider in your `config/app.php` configuration file:
 ],
 ```
 
-There is nothing special needed for this to function, simply declare a `uuid` column type in your migration files.
+There is nothing special needed for this to function, simply declare a `uuid` column type in your migration files. I indexing the UUID column if you plan on querying against it, but would avoid making it the primary key.
 
 ```php
 Schema::create('posts', function (Blueprint $table) {
