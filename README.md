@@ -49,6 +49,24 @@ Schema::create('posts', function (Blueprint $table) {
 });
 ```
 
+You will need to add a cast to your model when using [laravel-model-uuid](https://github.com/michaeldyrynda/laravel-model-uuid) in order to correctly set and retrieve UUID from your MySQL database with binary fields.
+
+```php
+<?php
+
+namespace App;
+
+use Dyrynda\Database\Support\GeneratesUuid;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use GeneratesUuid;
+
+    protected $casts = ['uuid' => 'uuid'];
+}
+```
+
 ## Support
 
 If you are having general issues with this package, feel free to contact me on [Twitter](https://twitter.com/michaeldyrynda).
