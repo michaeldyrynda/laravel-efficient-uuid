@@ -14,6 +14,8 @@ This package simply overrides the default grammar file for the given connection 
 
 MySQL is the only supported connection type, only because I've no experience with other drivers. I welcome any pull requests to implement this functionality for other database drivers.
 
+Note that `doctrine/dbal` does not appear to support changing existing `uuid` fields, and doing so would cause your existing values to be truncated in any event.
+
 For more information, check out [this post](https://www.percona.com/blog/2014/12/19/store-uuid-optimized-way/) on storing and working with UUID in an optimised manner.
 
 Using UUIDs in Laravel is made super simple in combination with [laravel-model-uuid](https://github.com/michaeldyrynda/laravel-model-uuid).
