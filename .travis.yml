@@ -14,8 +14,12 @@ matrix:
       env: ILLUMINATE_VERSION=5.4.*
     - php: 7.0
       env: ILLUMINATE_VERSION=5.4.*
+    - php: 7.0
+      env: ILLUMINATE_VERSION=5.5.*
     - php: 7.1
       env: ILLUMINATE_VERSION=5.4.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.5.*
 
 before_install:
   - composer require "illuminate/database:${ILLUMINATE_VERSION}" --no-update -v
