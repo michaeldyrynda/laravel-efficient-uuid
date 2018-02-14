@@ -1,5 +1,5 @@
 # Laravel Efficient UUIDs
-## v2.0.0
+## v2.1.0
 
 [![Build Status](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid.svg?branch=master)](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/?branch=master)
@@ -21,6 +21,8 @@ For more information, check out [this post](https://www.percona.com/blog/2014/12
 Using UUIDs in Laravel is made super simple in combination with [laravel-model-uuid](https://github.com/michaeldyrynda/laravel-model-uuid). Note that when using `laravel-model-uuid`, if you are not casting your UUIDs or calling the query builder directly, you'll need to use the `getBytes` method when setting the UUID on the database, otherwise your values will be truncated. Depending on your MySQL/MariaDB configuration, this may lead to application errors due to strict settings. See #1 for more information.
 
 This package supports Laravel 5.5 as of version 2.0.0.
+
+This package supports Laravel 5.6 as of version 2.1.0.
 
 ## Installation
 
