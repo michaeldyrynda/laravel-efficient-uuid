@@ -21,6 +21,13 @@
       "Tests\\": "tests/"
     }
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Dyrynda\\Database\\LaravelEfficientUuidServiceProvider"
+      ]
+    }
+  },
   "license": "MIT",
   "authors": [
     {
