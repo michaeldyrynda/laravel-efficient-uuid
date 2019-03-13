@@ -19,7 +19,7 @@ class DatabaseMySqlSchemaGrammarTest extends PHPUnit_Framework_TestCase
         $blueprint->uuid('foo');
         $statements = $blueprint->toSql($this->getConnection(), $this->getGrammar());
 
-        $this->assertEquals(1, count($statements));
+        $this->assertCount(1, $statements);
         $this->assertEquals('alter table `users` add `foo` binary(16) not null', $statements[0]);
     }
 
