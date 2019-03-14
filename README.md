@@ -1,5 +1,5 @@
 # Laravel Efficient UUIDs
-## v2.2.0
+## v2.3.0
 
 [![Build Status](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid.svg?branch=master)](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/?branch=master)
@@ -28,6 +28,7 @@ Laravel | Package
 5.5.*   | 2.0.*
 5.6.*   | 2.1.*
 5.7.*   | 2.2.*
+5.8.*   | 2.3.*
 
 ## Installation
 
