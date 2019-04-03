@@ -29,5 +29,12 @@
       "homepage": "https://dyrynda.com.au"
     }
   ],
-  "minimum-stability": "stable"
+  "minimum-stability": "stable",
+  "extra": {
+    "laravel": {
+        "providers": [
+            "Dyrynda\\Database\\LaravelEfficientUuidServiceProvider"
+        ]
+    }
+  }
 }
