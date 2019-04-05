@@ -12,6 +12,8 @@
 
 This package simply overrides the default grammar file for the given connection making the `uuid()` blueprint method return a `binary(16)` rather than the default `char(36)`.
 
+> **Note**: This package purposely does not use [package discovery](https://laravel.com/docs/5.8/packages#package-discovery), as it makes changes to the MySQL schema file, which is something you should explicitly enable.
+
 MySQL is the only supported connection type, only because I've no experience with other drivers. I welcome any pull requests to implement this functionality for other database drivers.
 
 Note that `doctrine/dbal` does not appear to support changing existing `uuid` fields, and doing so would cause your existing values to be truncated in any event.
