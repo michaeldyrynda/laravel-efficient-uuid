@@ -15,8 +15,8 @@ class Blueprint extends BaseBlueprint
      *
      * @return \Illuminate\Support\Fluent
      */
-    public function uuid($column)
+    public function efficientUuid($column)
     {
-        return $this->addColumn('uuid', $column);
+        return $this->addColumn('efficientUuid', $column);
     }
 }

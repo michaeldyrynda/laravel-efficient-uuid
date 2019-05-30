@@ -4,11 +4,11 @@ namespace Tests;
 
 use Dyrynda\Database\Blueprint;
 use Mockery as m;
-use PHPUnit_Framework_TestCase;
+use Orchestra\Testbench\TestCase;
 
-class DatabaseMySqlSchemaGrammarTest extends PHPUnit_Framework_TestCase
+class DatabaseMySqlSchemaGrammarTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         m::close();
     }
@@ -17,13 +17,13 @@ class DatabaseMySqlSchemaGrammarTest extends PHPUnit_Framework_TestCase
     {
         $blueprint = new Blueprint('users');
         $blueprint->uuid('foo');
+        $blueprint->efficientUuid('bar');
         $statements = $blueprint->toSql($this->getConnection(), $this->getGrammar());
 
-        $this->assertCount(1, $statements);
-        $this->assertEquals('alter table `users` add `foo` binary(16) not null', $statements[0]);
+        $this->assertContains('alter table `users` add `foo` char(36) not null, add `bar` binary(16) not null', $statements);
     }
 
-    protected function getConnection()
+    protected function getConnection($connection = null)
     {
         return m::mock('Illuminate\Database\Connection');
     }

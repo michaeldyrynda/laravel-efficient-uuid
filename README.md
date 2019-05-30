@@ -1,5 +1,5 @@
 # Laravel Efficient UUIDs
-## v2.3.0
+## v3.0.0
 
 [![Build Status](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid.svg?branch=master)](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/?branch=master)
@@ -10,7 +10,9 @@
 
 ## Introduction
 
-This package simply overrides the default grammar file for the given connection making the `uuid()` blueprint method return a `binary(16)` rather than the default `char(36)`.
+This package extends the default grammar file for the given MySQL connection adding an `efficientUuid` blueprint method that creates a `binary(16)` field.
+
+As of 3.0, this package _no longer overrides_ Laravel's default `uuid` method, rather adds a separate `efficientUuid` field, due to compatibility issues with Laravel Telescope (#11).
 
 > **Note**: This package purposely does not use [package discovery](https://laravel.com/docs/5.8/packages#package-discovery), as it makes changes to the MySQL schema file, which is something you should explicitly enable.
 
@@ -30,7 +32,7 @@ Laravel | Package
 5.5.*   | 2.0.*
 5.6.*   | 2.1.*
 5.7.*   | 2.2.*
-5.8.*   | 2.3.*
+5.8.*   | 2.3.*, 3.0.*
 
 ## Installation
 
@@ -54,7 +56,7 @@ There is nothing special needed for this to function, simply declare a `uuid` co
 ```php
 Schema::create('posts', function (Blueprint $table) {
     $table->increments('id');
-    $table->uuid('uuid')->index();
+    $table->efficientUuid('uuid')->index();
     $table->string('title');
     $table->text('body');
     $table->timestamps();

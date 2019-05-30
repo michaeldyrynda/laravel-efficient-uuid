@@ -14,7 +14,7 @@ class MySqlGrammar extends BaseMySqlGrammar
      *
      * @return string
      */
-    protected function typeUuid(Fluent $column)
+    protected function typeEfficientUuid(Fluent $column)
     {
         return 'binary(16)';
     }
