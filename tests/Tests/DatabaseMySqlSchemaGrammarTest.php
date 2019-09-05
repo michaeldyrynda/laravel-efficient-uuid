@@ -2,13 +2,13 @@
 
 namespace Tests;
 
-use Dyrynda\Database\Blueprint;
 use Mockery as m;
-use PHPUnit_Framework_TestCase;
+use Dyrynda\Database\Blueprint;
+use PHPUnit\Framework\TestCase;
 
-class DatabaseMySqlSchemaGrammarTest extends PHPUnit_Framework_TestCase
+class DatabaseMySqlSchemaGrammarTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         m::close();
     }
