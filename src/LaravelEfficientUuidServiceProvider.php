@@ -31,7 +31,7 @@ class LaravelEfficientUuidServiceProvider extends ServiceProvider
         });
 
         Blueprint::macro('efficientUuid', function ($column) {
-            $this->addColumn('efficientUuid', $column);
+            return $this->addColumn('efficientUuid', $column);
         });
     }
 }
