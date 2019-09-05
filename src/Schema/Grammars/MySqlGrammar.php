@@ -2,8 +2,8 @@
 
 namespace Dyrynda\Database\Schema\Grammars;
 
-use Illuminate\Database\Schema\Grammars\MySqlGrammar as BaseMySqlGrammar;
 use Illuminate\Support\Fluent;
+use Illuminate\Database\Schema\Grammars\MySqlGrammar as BaseMySqlGrammar;
 
 class MySqlGrammar extends BaseMySqlGrammar
 {
