@@ -1,5 +1,5 @@
 # Laravel Efficient UUIDs
-## v3.0.1
+## v3.1.0
 
 [![Build Status](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid.svg?branch=master)](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/?branch=master)
@@ -16,7 +16,7 @@ As of 3.0, this package _no longer overrides_ Laravel's default `uuid` method, b
 
 > **Note**: This package purposely does not use [package discovery](https://laravel.com/docs/5.8/packages#package-discovery), as it makes changes to the MySQL schema file, which is something you should explicitly enable.
 
-MySQL and SQLite are the only supported connection types, only because I've no experience with other drivers. I welcome any pull requests to implement this functionality for other database drivers.
+MySQL and SQLite are the only supported connection types, although I welcome any pull requests to implement this functionality for other database drivers.
 
 Note that `doctrine/dbal` does not appear to support changing existing `uuid` fields, and doing so would cause your existing values to be truncated in any event.
 
