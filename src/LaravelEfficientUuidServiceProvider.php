@@ -6,6 +6,7 @@ use Illuminate\Database\Connection;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
 use Dyrynda\Database\Connection\MySqlConnection;
+use Dyrynda\Database\Connection\SQLiteConnection;
 
 class LaravelEfficientUuidServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,10 @@ class LaravelEfficientUuidServiceProvider extends ServiceProvider
     {
         Connection::resolverFor('mysql', function ($connection, $database, $prefix, $config) {
             return new MySqlConnection($connection, $database, $prefix, $config);
+        });
+
+        Connection::resolverFor('sqlite', function ($connection, $database, $prefix, $config) {
+            return new SQLiteConnection($connection, $database, $prefix, $config);
         });
 
         Blueprint::macro('efficientUuid', function ($column) {
