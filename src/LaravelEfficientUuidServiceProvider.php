@@ -2,7 +2,10 @@
 
 namespace Dyrynda\Database;
 
+use Doctrine\DBAL\Types\Types;
+use Doctrine\DBAL\Types\BinaryType;
 use Illuminate\Database\Connection;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
 use Dyrynda\Database\Connection\MySqlConnection;
@@ -17,7 +20,11 @@ class LaravelEfficientUuidServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::registerCustomDoctrineType(
+            BinaryType::class,
+            'efficientuuid',
+            Types::BINARY
+        );
     }
 
     /**

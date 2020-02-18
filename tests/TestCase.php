@@ -12,4 +12,13 @@ class TestCase extends \Orchestra\Testbench\TestCase
             LaravelEfficientUuidServiceProvider::class,
         ];
     }
+
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('database.default', 'sqlite');
+        $app['config']->set('database.connections.sqlite', [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+        ]);
+    }
 }
