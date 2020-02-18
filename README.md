@@ -7,6 +7,7 @@
 [![Latest Stable Version](https://poser.pugx.org/dyrynda/laravel-efficient-uuid/v/stable)](https://packagist.org/packages/dyrynda/laravel-efficient-uuid)
 [![Total Downloads](https://poser.pugx.org/dyrynda/laravel-efficient-uuid/downloads)](https://packagist.org/packages/dyrynda/laravel-efficient-uuid)
 [![License](https://poser.pugx.org/dyrynda/laravel-efficient-uuid/license)](https://packagist.org/packages/dyrynda/laravel-efficient-uuid)
+[![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=for-the-badge)](https://offset.earth/treeware?gift-trees)
 
 ## Introduction
 
@@ -76,3 +77,13 @@ If you are having general issues with this package, feel free to contact me on [
 If you believe you have found an issue, please report it using the [GitHub issue tracker](https://github.com/michaeldyrynda/laravel-efficient-uuid/issues), or better yet, fork the repository and submit a pull request.
 
 If you're using this package, I'd love to hear your thoughts. Thanks!
+
+## Treeware
+
+You're free to use this package, but if it makes it to your production environment you are required to buy the world a tree.
+
+It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to plant trees. If you support this package and contribute to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
+
+You can buy trees [here](https://offset.earth/treeware)
+
+Read more about Treeware at [treeware.earth](https://treeware.earth)
