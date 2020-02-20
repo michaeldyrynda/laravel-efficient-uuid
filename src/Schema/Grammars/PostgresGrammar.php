@@ -2,10 +2,9 @@
 
 namespace Dyrynda\Database\Schema\Grammars;
 
-use Illuminate\Support\Fluent;
-use Illuminate\Database\Schema\Grammars\SQLiteGrammar as IlluminateSQLiteGrammar;
+use Illuminate\Database\Schema\Grammars\PostgresGrammar as BasePostgresGrammar;
 
-class SQLiteGrammar extends IlluminateSQLiteGrammar
+class PostgresGrammar extends BasePostgresGrammar
 {
     /**
      * Create the column definition for a UUID type.
@@ -14,6 +13,6 @@ class SQLiteGrammar extends IlluminateSQLiteGrammar
      */
     protected function typeEfficientUuid()
     {
-        return 'blob(256)';
+        return 'bytea';
     }
 }
