@@ -8,6 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Dyrynda\Database\Connection\MySqlConnection;
 use Dyrynda\Database\Connection\SQLiteConnection;
 use Dyrynda\Database\Connection\PostgresConnection;
+
 class LaravelEfficientUuidServiceProvider extends ServiceProvider
 {
     /**
