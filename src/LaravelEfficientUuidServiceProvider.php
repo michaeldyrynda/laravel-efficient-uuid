@@ -4,6 +4,7 @@ namespace Dyrynda\Database;
 
 use Illuminate\Database\Connection;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Schema\Blueprint;
 use Dyrynda\Database\Connection\MySqlConnection;
 use Dyrynda\Database\Connection\SQLiteConnection;
 use Dyrynda\Database\Connection\PostgresConnection;
