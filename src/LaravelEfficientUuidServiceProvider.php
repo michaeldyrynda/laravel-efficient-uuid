@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
 use Dyrynda\Database\Connection\MySqlConnection;
 use Dyrynda\Database\Connection\SQLiteConnection;
-
+use Dyrynda\Database\Connection\PostgresConnection;
 class LaravelEfficientUuidServiceProvider extends ServiceProvider
 {
     /**
@@ -31,6 +31,10 @@ class LaravelEfficientUuidServiceProvider extends ServiceProvider
             return new MySqlConnection($connection, $database, $prefix, $config);
         });
 
+        Connection::resolverFor('postgres', function ($connection, $database, $prefix, $config) {
+            return new PostgresConnection($connection, $database, $prefix, $config);
+        });
+        
         Connection::resolverFor('sqlite', function ($connection, $database, $prefix, $config) {
             return new SQLiteConnection($connection, $database, $prefix, $config);
         });
