@@ -15,6 +15,8 @@ This package extends the default grammar file for the given MySQL connection add
 
 As of 3.0, this package _no longer overrides_ Laravel's default `uuid` method, but rather adds a separate `efficientUuid` field, due to compatibility issues with Laravel Telescope (#11).
 
+As of 4.0, this package uses a [custom cast](https://laravel.com/docs/7.x/eloquent-mutators#custom-casts) to provide casting functionality into your models.
+
 > **Note**: This package purposely does not use [package discovery](https://laravel.com/docs/5.8/packages#package-discovery), as it makes changes to the MySQL schema file, which is something you should explicitly enable.
 
 MySQL and SQLite are the only supported connection types, although I welcome any pull requests to implement this functionality for other database drivers.
