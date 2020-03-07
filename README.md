@@ -1,5 +1,5 @@
 # Laravel Efficient UUIDs
-## v3.1.0
+## v4.0.0
 
 [![Build Status](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid.svg?branch=master)](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/?branch=master)
@@ -14,6 +14,8 @@
 This package extends the default grammar file for the given MySQL connection adding an `efficientUuid` blueprint method that creates a `binary(16)` field.
 
 As of 3.0, this package _no longer overrides_ Laravel's default `uuid` method, but rather adds a separate `efficientUuid` field, due to compatibility issues with Laravel Telescope (#11).
+
+As of 4.0, this package uses a [custom cast](https://laravel.com/docs/7.x/eloquent-mutators#custom-casts) to provide casting functionality into your models.
 
 > **Note**: This package purposely does not use [package discovery](https://laravel.com/docs/5.8/packages#package-discovery), as it makes changes to the MySQL schema file, which is something you should explicitly enable.
 
@@ -59,14 +61,17 @@ You will need to add a cast to your model when using [laravel-model-uuid](https:
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Dyrynda\Database\Support\Casts\EfficientUuid;
 use Dyrynda\Database\Support\GeneratesUuid;
+use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
     use GeneratesUuid;
 
-    protected $casts = ['uuid' => 'uuid'];
+    protected $casts = [
+        'uuid' => EfficientUuid::class,
+    ];
 }
 ```
 
