@@ -1,5 +1,5 @@
 # Laravel Efficient UUIDs
-## v3.1.0
+## v4.0.0
 
 [![Build Status](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid.svg?branch=master)](https://travis-ci.org/michaeldyrynda/laravel-efficient-uuid)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michaeldyrynda/laravel-efficient-uuid/?branch=master)
@@ -59,14 +59,17 @@ You will need to add a cast to your model when using [laravel-model-uuid](https:
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Dyrynda\Database\Support\Casts\EfficientUuid;
 use Dyrynda\Database\Support\GeneratesUuid;
+use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
     use GeneratesUuid;
 
-    protected $casts = ['uuid' => 'uuid'];
+    protected $casts = [
+        'uuid' => EfficientUuid::class,
+    ];
 }
 ```
 
