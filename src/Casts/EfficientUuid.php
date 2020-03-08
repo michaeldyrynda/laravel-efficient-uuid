@@ -1,6 +1,6 @@
 <?php
 
-namespace Dyrynda\Database\Support\Casts;
+namespace Dyrynda\Database\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
