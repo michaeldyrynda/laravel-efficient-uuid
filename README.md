@@ -19,7 +19,7 @@ As of 4.0, this package uses a [custom cast](https://laravel.com/docs/7.x/eloque
 
 > **Note**: This package purposely does not use [package discovery](https://laravel.com/docs/5.8/packages#package-discovery), as it makes changes to the MySQL schema file, which is something you should explicitly enable.
 
-MySQL and SQLite are the only supported connection types, although I welcome any pull requests to implement this functionality for other database drivers.
+MySQL, SQLite, and PostgreSQL are the only supported connection types, although I welcome any pull requests to implement this functionality for other database drivers.
 
 Note that `doctrine/dbal` does not appear to support changing existing `uuid` fields, and doing so would cause your existing values to be truncated in any event.
 
