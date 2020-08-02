@@ -3,6 +3,7 @@
 namespace Dyrynda\Database\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Ramsey\Uuid\Uuid;
 
 class EfficientUuid implements CastsAttributes
 {
@@ -17,7 +18,7 @@ class EfficientUuid implements CastsAttributes
      */
     public function get($model, string $key, $value, array $attributes)
     {
-        return $model->resolveUuid()->fromBytes($value)->toString();
+        return Uuid::fromBytes($value)->toString();
     }
 
     /**
@@ -32,7 +33,7 @@ class EfficientUuid implements CastsAttributes
     public function set($model, string $key, $value, array $attributes)
     {
         return [
-            $key => $model->resolveUuid()->fromString(strtolower($value))->getBytes(),
+            $key => Uuid::fromString(strtolower($value))->getBytes(),
         ];
     }
 }
