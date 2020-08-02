@@ -6,7 +6,7 @@
 [![Latest Stable Version](https://poser.pugx.org/dyrynda/laravel-efficient-uuid/v/stable)](https://packagist.org/packages/dyrynda/laravel-efficient-uuid)
 [![Total Downloads](https://poser.pugx.org/dyrynda/laravel-efficient-uuid/downloads)](https://packagist.org/packages/dyrynda/laravel-efficient-uuid)
 [![License](https://poser.pugx.org/dyrynda/laravel-efficient-uuid/license)](https://packagist.org/packages/dyrynda/laravel-efficient-uuid)
-[![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=for-the-badge)](https://offset.earth/treeware?gift-trees)
+[![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/michaeldyrynda/laravel-efficient-uuid)
 
 ## Introduction
 
@@ -18,7 +18,7 @@ As of 4.0, this package uses a [custom cast](https://laravel.com/docs/7.x/eloque
 
 > **Note**: This package purposely does not use [package discovery](https://laravel.com/docs/5.8/packages#package-discovery), as it makes changes to the MySQL schema file, which is something you should explicitly enable.
 
-MySQL and SQLite are the only supported connection types, although I welcome any pull requests to implement this functionality for other database drivers.
+MySQL, SQLite, and PostgreSQL are the only supported connection types, although I welcome any pull requests to implement this functionality for other database drivers.
 
 Note that `doctrine/dbal` does not appear to support changing existing `uuid` fields, and doing so would cause your existing values to be truncated in any event.
 
@@ -88,6 +88,6 @@ You're free to use this package, but if it makes it to your production environme
 
 It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to plant trees. If you support this package and contribute to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
 
-You can buy trees [here](https://offset.earth/treeware)
+You can buy trees [here](https://plant.treeware.earth/michaeldyrynda/laravel-efficient-uuid)
 
 Read more about Treeware at [treeware.earth](https://treeware.earth)
