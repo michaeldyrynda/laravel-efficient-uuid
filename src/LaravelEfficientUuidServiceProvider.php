@@ -33,7 +33,7 @@ class LaravelEfficientUuidServiceProvider extends ServiceProvider
             return new MySqlConnection($connection, $database, $prefix, $config);
         });
 
-        Connection::resolverFor('postgres', function ($connection, $database, $prefix, $config): PostgresConnection {
+        Connection::resolverFor('pgsql', function ($connection, $database, $prefix, $config): PostgresConnection {
             return new PostgresConnection($connection, $database, $prefix, $config);
         });
         
