@@ -5,7 +5,7 @@ namespace Tests;
 use Mockery as m;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
-use Dyrynda\Database\Schema\Grammars\PostgresGrammar;
+use Illuminate\Database\Schema\Grammars\PostgresGrammar;
 
 class DatabasePostgresSchemaGrammarTest extends TestCase
 {

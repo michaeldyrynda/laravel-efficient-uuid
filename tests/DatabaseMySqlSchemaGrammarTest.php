@@ -5,7 +5,7 @@ namespace Tests;
 use Mockery as m;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
-use Dyrynda\Database\Schema\Grammars\MySqlGrammar;
+use Illuminate\Database\Schema\Grammars\MySqlGrammar;
 
 class DatabaseMySqlSchemaGrammarTest extends TestCase
 {

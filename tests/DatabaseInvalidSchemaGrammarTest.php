@@ -1,13 +1,15 @@
 <?php
 
+
 namespace Tests;
 
 use Mockery as m;
+use Dyrynda\Database\Exceptions\UnknownGrammarClass;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Schema\Grammars\SQLiteGrammar;
+use Illuminate\Database\Schema\Grammars\SqlServerGrammar;
 
-class DatabaseSQLiteSchemaGrammarTest extends TestCase
+class DatabaseInvalidSchemaGrammarTest extends TestCase
 {
     public function tearDown(): void
     {
@@ -23,9 +25,8 @@ class DatabaseSQLiteSchemaGrammarTest extends TestCase
 
         $connection = m::mock(Connection::class);
 
-        $this->assertEquals(
-            ['alter table "users" add column "foo" varchar not null', 'alter table "users" add column "bar" blob(256) not null'],
-            $blueprint->toSql($connection, new SQLiteGrammar)
-        );
+        $this->expectExceptionObject(new UnknownGrammarClass());
+
+        $blueprint->toSql($connection, new SqlServerGrammar);
     }
 }

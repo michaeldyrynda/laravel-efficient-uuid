@@ -4,11 +4,14 @@ namespace Dyrynda\Database;
 
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\ColumnDefinition;
+use Illuminate\Database\Schema\Grammars\Grammar;
+use Illuminate\Support\Fluent;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
 use Dyrynda\Database\Connection\MySqlConnection;
 use Dyrynda\Database\Connection\SQLiteConnection;
 use Dyrynda\Database\Connection\PostgresConnection;
+use Dyrynda\Database\Exceptions\UnknownGrammarClass;
 
 class LaravelEfficientUuidServiceProvider extends ServiceProvider
 {
@@ -29,17 +32,25 @@ class LaravelEfficientUuidServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Connection::resolverFor('mysql', function ($connection, $database, $prefix, $config): MySqlConnection {
-            return new MySqlConnection($connection, $database, $prefix, $config);
+
+        Grammar::macro('typeEfficientUuid', function (Fluent $column) {
+            $className = (new \ReflectionClass($this))->getShortName();
+
+            if ($className === "MySqlGrammar") {
+                return sprintf('binary(%d)', $column->length ?? 16);
+            }
+
+            if ($className === "PostgresGrammar") {
+                return 'bytea';
+            }
+
+            if ($className === "SQLiteGrammar") {
+                return 'blob(256)';
+            }
+
+            throw new UnknownGrammarClass();
         });
 
-        Connection::resolverFor('postgres', function ($connection, $database, $prefix, $config): PostgresConnection {
-            return new PostgresConnection($connection, $database, $prefix, $config);
-        });
-        
-        Connection::resolverFor('sqlite', function ($connection, $database, $prefix, $config): SQLiteConnection {
-            return new SQLiteConnection($connection, $database, $prefix, $config);
-        });
 
         Blueprint::macro('efficientUuid', function ($column): ColumnDefinition {
             /** @var Blueprint $this */
