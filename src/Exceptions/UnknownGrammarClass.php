@@ -9,5 +9,5 @@ class UnknownGrammarClass extends \Exception
     /**
      * @var string
      */
-    protected $message = 'Unknown Grammar Class, unable to define  Type.';
+    protected $message = 'Unknown grammar class, unable to define database type.';
 }
