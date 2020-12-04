@@ -11,10 +11,10 @@
     }
   ],
   "require": {
-    "php": "^7.3",
-    "illuminate/container": "^8.0",
-    "illuminate/contracts": "^8.0",
-    "illuminate/database": "^8.0",
+    "php": "^7.3|^8.0",
+    "illuminate/container": "^8.12",
+    "illuminate/contracts": "^8.12",
+    "illuminate/database": "^8.12",
     "ramsey/uuid": "^4.1"
   },
   "require-dev": {
