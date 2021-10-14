@@ -1,0 +1,40 @@
+<?php
+
+namespace Tests;
+
+use Ramsey\Uuid\Uuid;
+use Tests\Fixtures\EfficientUuidPost;
+use Dyrynda\Database\Rules\EfficientUuidExists;
+
+class EfficientUuidExistsRuleTest extends TestCase
+{
+	/** @test */
+	public function it_passes_valid_existing_uuid()
+	{
+		$post = factory(EfficientUuidPost::class)->create();
+
+		$rule = new EfficientUuidExists(EfficientUuidPost::class, 'uuid');
+
+		$this->assertTrue($rule->passes('post_id', $post->uuid));
+	}
+
+	/** @test */
+	public function it_fails_on_non_existing_uuid()
+	{
+		$uuid = Uuid::uuid4();
+
+		$rule = new EfficientUuidExists(EfficientUuidPost::class, 'uuid');
+
+		$this->assertFalse($rule->passes('post_id', $uuid));
+	}
+
+	/** @test */
+	public function it_fails_on_any_non_uuid_invalid_strings()
+	{
+		$uuid = "1235123564354633";
+
+		$rule = new EfficientUuidExists(EfficientUuidPost::class, 'uuid');
+
+		$this->assertFalse($rule->passes('post_id', $uuid));
+	}
+}
