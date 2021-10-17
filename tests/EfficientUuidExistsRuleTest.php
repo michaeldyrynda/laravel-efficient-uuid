@@ -37,4 +37,14 @@ class EfficientUuidExistsRuleTest extends TestCase
 
 		$this->assertFalse($rule->passes('post_id', $uuid));
 	}
+
+    /** @test */
+    public function it_works_with_custom_uuid_column_name()
+    {
+		$post = factory(EfficientUuidPost::class)->create();
+
+		$rule = new EfficientUuidExists(EfficientUuidPost::class, 'custom_uuid');
+
+		$this->assertTrue($rule->passes('custom_uuid', $post->custom_uuid));
+    }
 }

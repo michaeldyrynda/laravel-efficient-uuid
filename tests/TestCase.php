@@ -31,6 +31,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
 		$app['db']->connection()->getSchemaBuilder()->create('posts', function (Blueprint $table) {
 			$table->increments('id');
 			$table->efficientUuid('uuid');
+			$table->efficientUuid('custom_uuid');
 			$table->string('title');
 		});
 	}

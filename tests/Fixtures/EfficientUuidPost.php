@@ -14,12 +14,18 @@ class EfficientUuidPost extends Model
 
 	public $timestamps = false;
 
+	protected $casts = [
+		'uuid' => EfficientUuid::class,
+        'custom_uuid' => EfficientUuid::class,
+	];
+
 	public function uuidColumn(): string
 	{
 		return 'uuid';
 	}
 
-	protected $casts = [
-		'uuid' => EfficientUuid::class
-	];
+    public function uuidColumns(): array
+    {
+        return ['uuid', 'custom_uuid'];
+    }
 }
