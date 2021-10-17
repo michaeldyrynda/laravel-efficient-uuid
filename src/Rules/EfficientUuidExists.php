@@ -31,12 +31,10 @@ class EfficientUuidExists implements Rule
 	public function passes($attribute, $value): bool
 	{
 		if (Uuid::isValid($value)) {
-			$binaryUuid = Uuid::fromString(strtolower($value))->getBytes();
-
-			return $this->model->where($this->column, $binaryUuid)->exists();
-		} else {
-			return false;
+			return $this->model->whereUuid($value, $this->column)->exists();
 		}
+        
+        return false;
 	}
 
 	public function message(): string
