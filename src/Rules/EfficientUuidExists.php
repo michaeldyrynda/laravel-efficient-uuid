@@ -8,15 +8,11 @@ use Illuminate\Contracts\Validation\Rule;
 class EfficientUuidExists implements Rule
 {
 	/**
-	 * Model's namespace
-	 *
 	 * @var \Illuminate\Database\Eloquent\Model
 	 */
 	protected $model;
 
 	/**
-	 * Specific column name from given model
-	 *
 	 * @var string
 	 */
 	protected $column;
