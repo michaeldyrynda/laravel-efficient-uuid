@@ -39,7 +39,9 @@ Register the service provider in your `config/app.php` configuration file:
 ],
 ```
 
-There is nothing special needed for this to function, simply declare a `uuid` column type in your migration files. I indexing the UUID column if you plan on querying against it, but would avoid making it the primary key.
+### Migrations 
+
+There is nothing special needed for this to function, simply declare a `uuid` column type in your migration files. If you plan on querying against the UUID column, it is recommended that you index the column, but avoid making it the primary key.
 
 ```php
 Schema::create('posts', function (Blueprint $table) {
@@ -50,6 +52,8 @@ Schema::create('posts', function (Blueprint $table) {
     $table->timestamps();
 });
 ```
+
+### Casting 
 
 You will need to add a cast to your model when using [laravel-model-uuid](https://github.com/michaeldyrynda/laravel-model-uuid) in order to correctly set and retrieve UUID from your MySQL database with binary fields.
 
