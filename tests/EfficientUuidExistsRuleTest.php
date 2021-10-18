@@ -4,18 +4,24 @@ namespace Tests;
 
 use Ramsey\Uuid\Uuid;
 use Tests\Fixtures\EfficientUuidPost;
-use Dyrynda\Database\Rules\EfficientUuidExists;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class EfficientUuidExistsRuleTest extends TestCase
 {
 	/** @test */
 	public function it_passes_valid_existing_uuid()
 	{
+		/** @var  \Tests\Fixtures\EfficientUuidPost  $post */
 		$post = factory(EfficientUuidPost::class)->create();
 
-		$rule = new EfficientUuidExists(EfficientUuidPost::class, 'uuid');
+		/** @var  \Illuminate\Validation\Validator  $v */
+		$v = Validator::make(
+			['uuid' => $post->getRawOriginal('uuid')], 
+			['uuid' => Rule::exists(EfficientUuidPost::class)]
+		);
 
-		$this->assertTrue($rule->passes('post_id', $post->uuid));
+		$this->assertTrue($v->passes());
 	}
 
 	/** @test */
@@ -23,9 +29,13 @@ class EfficientUuidExistsRuleTest extends TestCase
 	{
 		$uuid = Uuid::uuid4();
 
-		$rule = new EfficientUuidExists(EfficientUuidPost::class, 'uuid');
+		/** @var  \Illuminate\Validation\Validator  $v */
+		$v = Validator::make(
+			['uuid' => $uuid->getBytes()], 
+			['uuid' => Rule::exists(EfficientUuidPost::class)]
+		);
 
-		$this->assertFalse($rule->passes('post_id', $uuid));
+		$this->assertFalse($v->passes());
 	}
 
 	/** @test */
@@ -33,18 +43,27 @@ class EfficientUuidExistsRuleTest extends TestCase
 	{
 		$uuid = "1235123564354633";
 
-		$rule = new EfficientUuidExists(EfficientUuidPost::class, 'uuid');
+		/** @var  \Illuminate\Validation\Validator  $v */
+		$v = Validator::make(
+			['uuid' => $uuid],
+			['uuid' => Rule::exists(EfficientUuidPost::class, 'uuid')]
+		);
 
-		$this->assertFalse($rule->passes('post_id', $uuid));
+		$this->assertFalse($v->passes());
 	}
 
-    /** @test */
-    public function it_works_with_custom_uuid_column_name()
-    {
+	/** @test */
+	public function it_works_with_custom_uuid_column_name()
+	{
+		/** @var  \Tests\Fixtures\EfficientUuidPost  $post */
 		$post = factory(EfficientUuidPost::class)->create();
 
-		$rule = new EfficientUuidExists(EfficientUuidPost::class, 'custom_uuid');
+		/** @var  \Illuminate\Validation\Validator  $v */
+		$v = Validator::make(
+			['custom_uuid' => $post->getRawOriginal('custom_uuid')], 
+			['custom_uuid' => ['required', Rule::exists(EfficientUuidPost::class)]]
+		);
 
-		$this->assertTrue($rule->passes('custom_uuid', $post->custom_uuid));
-    }
+		$this->assertTrue($v->passes());
+	}
 }

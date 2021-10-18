@@ -72,6 +72,23 @@ class Post extends Model
 }
 ```
 
+### Validation
+
+Should you wish to use the efficient UUID column as part of your validation strategy, you may use the `Exists` rule as normal.
+
+```php
+public function update(Request $request, User $user)
+{
+    $request->validate([
+        // Using the Rule facade
+        'uuid' => [Rule::exists(Post::class)],
+
+        // Using Exists directly
+        'custom_uuid' => [new Exists(Post::class)],
+    ]);
+}
+```
+
 ## Support
 
 If you are having general issues with this package, feel free to contact me on [Twitter](https://twitter.com/michaeldyrynda).
