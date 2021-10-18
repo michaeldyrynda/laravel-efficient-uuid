@@ -2,8 +2,8 @@
 
 namespace Dyrynda\Database\Casts;
 
-use Ramsey\Uuid\Uuid;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Ramsey\Uuid\Uuid;
 
 class EfficientUuid implements CastsAttributes
 {

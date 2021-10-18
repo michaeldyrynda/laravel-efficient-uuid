@@ -2,10 +2,10 @@
 
 namespace Tests;
 
-use Mockery as m;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Grammars\MySqlGrammar;
+use Mockery as m;
 
 class DatabaseMySqlSchemaGrammarTest extends TestCase
 {

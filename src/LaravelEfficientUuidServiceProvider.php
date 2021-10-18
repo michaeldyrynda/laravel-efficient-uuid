@@ -2,12 +2,12 @@
 
 namespace Dyrynda\Database;
 
-use Illuminate\Support\Fluent;
-use Illuminate\Support\ServiceProvider;
+use Dyrynda\Database\Exceptions\UnknownGrammarClass;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\ColumnDefinition;
 use Illuminate\Database\Schema\Grammars\Grammar;
-use Dyrynda\Database\Exceptions\UnknownGrammarClass;
+use Illuminate\Support\Fluent;
+use Illuminate\Support\ServiceProvider;
 
 class LaravelEfficientUuidServiceProvider extends ServiceProvider
 {

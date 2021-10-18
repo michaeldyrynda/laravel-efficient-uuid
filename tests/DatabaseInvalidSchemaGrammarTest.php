@@ -1,13 +1,12 @@
 <?php
 
-
 namespace Tests;
 
-use Mockery as m;
 use Dyrynda\Database\Exceptions\UnknownGrammarClass;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Grammars\SqlServerGrammar;
+use Mockery as m;
 
 class DatabaseInvalidSchemaGrammarTest extends TestCase
 {

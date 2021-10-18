@@ -2,10 +2,10 @@
 
 namespace Tests;
 
-use Mockery as m;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Grammars\PostgresGrammar;
+use Mockery as m;
 
 class DatabasePostgresSchemaGrammarTest extends TestCase
 {
