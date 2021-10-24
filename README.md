@@ -76,6 +76,25 @@ class Post extends Model
 }
 ```
 
+### Validation
+
+Should you wish to use the efficient UUID column as part of your validation strategy, you may use the `EfficientUuidExists` rule as normal.
+
+```php
+use Dyrynda\Database\Rules\EfficientUuidExists;
+
+public function update(Request $request, User $user)
+{
+    $request->validate([
+        // Using the default column name
+        'uuid' => [new EfficientUuidExists(Post::class)],
+
+        // Using a custom column name
+        'custom_uuid' => [new EfficientUuidExists(Post::class, 'custom_uuid')],
+    ]);
+}
+```
+
 ## Support
 
 If you are having general issues with this package, feel free to contact me on [Twitter](https://twitter.com/michaeldyrynda).
