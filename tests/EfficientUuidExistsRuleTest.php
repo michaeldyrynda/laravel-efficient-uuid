@@ -11,7 +11,7 @@ class EfficientUuidExistsRuleTest extends TestCase
     /** @test */
     public function it_passes_valid_existing_uuid()
     {
-        /** @var  \Tests\Fixtures\EfficientUuidPost  $post */
+        /** @var \Tests\Fixtures\EfficientUuidPost $post */
         $post = factory(EfficientUuidPost::class)->create();
 
         $rule = new EfficientUuidExists(EfficientUuidPost::class);
@@ -32,7 +32,7 @@ class EfficientUuidExistsRuleTest extends TestCase
     /** @test */
     public function it_fails_on_any_non_uuid_invalid_strings()
     {
-        $uuid = "1235123564354633";
+        $uuid = '1235123564354633';
 
         $rule = new EfficientUuidExists(EfficientUuidPost::class, 'uuid');
 
@@ -42,7 +42,7 @@ class EfficientUuidExistsRuleTest extends TestCase
     /** @test */
     public function it_works_with_custom_uuid_column_name()
     {
-        /** @var  \Tests\Fixtures\EfficientUuidPost  $post */
+        /** @var \Tests\Fixtures\EfficientUuidPost $post */
         $post = factory(EfficientUuidPost::class)->create();
 
         $rule = new EfficientUuidExists(EfficientUuidPost::class, 'custom_uuid');
