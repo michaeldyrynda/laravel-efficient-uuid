@@ -2,37 +2,37 @@
 
 namespace Dyrynda\Database\Rules;
 
-use Ramsey\Uuid\Uuid;
 use Illuminate\Contracts\Validation\Rule;
+use Ramsey\Uuid\Uuid;
 
 class EfficientUuidExists implements Rule
 {
-	/** @var \Dyrynda\Database\GeneratesUuid */
-	protected $model;
+    /** @var \Dyrynda\Database\GeneratesUuid */
+    protected $model;
 
-	/** @var string */
-	protected $column;
+    /** @var string */
+    protected $column;
 
-	public function __construct(string $model, string $column = 'uuid')
-	{
-		$this->model = new $model;
+    public function __construct(string $model, string $column = 'uuid')
+    {
+        $this->model = new $model;
 
-		$this->column = $column;
-	}
+        $this->column = $column;
+    }
 
-	public function passes($attribute, $value): bool
-	{
-		if (Uuid::isValid($value)) {
-			$binaryUuid = Uuid::fromString(strtolower($value))->getBytes();
+    public function passes($attribute, $value): bool
+    {
+        if (Uuid::isValid($value)) {
+            $binaryUuid = Uuid::fromString(strtolower($value))->getBytes();
 
-			return $this->model->where($this->column, $binaryUuid)->exists();
-		}
+            return $this->model->where($this->column, $binaryUuid)->exists();
+        }
 
-		return false;
-	}
+        return false;
+    }
 
-	public function message(): string
-	{
-		return trans('validation.exists');
-	}
+    public function message(): string
+    {
+        return trans('validation.exists');
+    }
 }

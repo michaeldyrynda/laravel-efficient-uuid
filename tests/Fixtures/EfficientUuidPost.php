@@ -2,27 +2,27 @@
 
 namespace Tests\Fixtures;
 
-use Illuminate\Database\Eloquent\Model;
 use Dyrynda\Database\Casts\EfficientUuid;
 use Dyrynda\Database\Support\GeneratesUuid;
+use Illuminate\Database\Eloquent\Model;
 
 class EfficientUuidPost extends Model
 {
-	use GeneratesUuid;
+    use GeneratesUuid;
 
-	protected $table = 'posts';
+    protected $table = 'posts';
 
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected $casts = [
-		'uuid' => EfficientUuid::class,
+    protected $casts = [
+        'uuid' => EfficientUuid::class,
         'custom_uuid' => EfficientUuid::class,
-	];
+    ];
 
-	public function uuidColumn(): string
-	{
-		return 'uuid';
-	}
+    public function uuidColumn(): string
+    {
+        return 'uuid';
+    }
 
     public function uuidColumns(): array
     {
