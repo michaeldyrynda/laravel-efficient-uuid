@@ -7,14 +7,10 @@ use Illuminate\Contracts\Validation\Rule;
 
 class EfficientUuidExists implements Rule
 {
-	/**
-	 * @var \Illuminate\Database\Eloquent\Model
-	 */
+	/** @var \Dyrynda\Database\GeneratesUuid */
 	protected $model;
 
-	/**
-	 * @var string
-	 */
+	/** @var string */
 	protected $column;
 
 	public function __construct(string $model, string $column = 'uuid')
@@ -27,10 +23,12 @@ class EfficientUuidExists implements Rule
 	public function passes($attribute, $value): bool
 	{
 		if (Uuid::isValid($value)) {
-			return $this->model->whereUuid($value, $this->column)->exists();
+			$binaryUuid = Uuid::fromString(strtolower($value))->getBytes();
+
+			return $this->model->where($this->column, $binaryUuid)->exists();
 		}
-        
-        return false;
+
+		return false;
 	}
 
 	public function message(): string
