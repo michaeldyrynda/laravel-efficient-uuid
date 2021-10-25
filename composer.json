@@ -13,9 +13,9 @@
   "require": {
     "php": "^7.3|^8.0",
     "dyrynda/laravel-model-uuid": "^6.5",
-    "illuminate/container": "^8.12",
-    "illuminate/contracts": "^8.12",
-    "illuminate/database": "^8.12",
+    "illuminate/container": "^6.20|^8.12",
+    "illuminate/contracts": "^6.20|^8.12",
+    "illuminate/database": "^6.20|^8.12",
     "ramsey/uuid": "^4.1"
   },
   "require-dev": {
