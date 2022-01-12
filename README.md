@@ -10,7 +10,7 @@
 
 This package extends the default grammar file for the given MySQL connection adding an `efficientUuid` blueprint method that creates a `binary(16)` field.
 
-As of 3.0, this package _no longer overrides_ Laravel's default `uuid` method, but rather adds a separate `efficientUuid` field, due to compatibility issues with Laravel Telescope (#11).
+As of 3.0, this package _no longer overrides_ Laravel's default `uuid` method, but rather adds a separate `efficientUuid` field, due to compatibility issues with Laravel Telescope ([#11][i11]).
 
 As of 4.0, this package uses a [custom cast](https://laravel.com/docs/7.x/eloquent-mutators#custom-casts) to provide casting functionality into your models.
 
@@ -22,7 +22,7 @@ Note that `doctrine/dbal` does not appear to support changing existing `uuid` fi
 
 For more information, check out [this post](https://www.percona.com/blog/2014/12/19/store-uuid-optimized-way/) on storing and working with UUID in an optimised manner.
 
-Using UUIDs in Laravel is made super simple in combination with [laravel-model-uuid](https://github.com/michaeldyrynda/laravel-model-uuid). Note that when using `laravel-model-uuid`, if you are not casting your UUIDs or calling the query builder directly, you'll need to use the `getBytes` method when setting the UUID on the database, otherwise your values will be truncated. Depending on your MySQL/MariaDB configuration, this may lead to application errors due to strict settings. See #1 for more information.
+Using UUIDs in Laravel is made super simple in combination with [laravel-model-uuid](https://github.com/michaeldyrynda/laravel-model-uuid). Note that when using `laravel-model-uuid`, if you are not casting your UUIDs or calling the query builder directly, you'll need to use the `getBytes` method when setting the UUID on the database, otherwise your values will be truncated. Depending on your MySQL/MariaDB configuration, this may lead to application errors due to strict settings. See ([#1][i1]) for more information.
 
 This package is installed via [Composer](https://getcomposer.org/). To install, run the following command.
 
@@ -112,3 +112,8 @@ It’s now common knowledge that one of the best tools to tackle the climate cri
 You can buy trees [here](https://plant.treeware.earth/michaeldyrynda/laravel-efficient-uuid)
 
 Read more about Treeware at [treeware.earth](https://treeware.earth)
+
+
+
+[i1]: https://github.com/user/repo/issues/1
+[i11]: https://github.com/user/repo/issues/11
