@@ -18,7 +18,7 @@ class EfficientUuid implements CastsAttributes
      */
     public function get($model, string $key, $value, array $attributes)
     {
-        if (trim($value) === '') {
+        if (trim((string) $value) === '') {
             return;
         }
 
@@ -36,7 +36,7 @@ class EfficientUuid implements CastsAttributes
      */
     public function set($model, string $key, $value, array $attributes)
     {
-        if (trim($value) === '') {
+        if (trim((string) $value) === '') {
             return;
         }
 
