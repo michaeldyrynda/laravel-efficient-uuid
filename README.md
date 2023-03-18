@@ -76,6 +76,15 @@ class Post extends Model
 }
 ```
 
+### Querying by UUID
+
+If you want to find a record by a string UUID, you need to use scope:
+
+```php
+Post::whereUuid('25b112a9-499a-4627-9ea0-72cd8694aee3')->first();
+
+```
+
 ### Validation
 
 Should you wish to use the efficient UUID column as part of your validation strategy, you may use the `EfficientUuidExists` rule as normal.
