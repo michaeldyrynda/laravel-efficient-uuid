@@ -33,5 +33,21 @@ class LaravelEfficientUuidServiceProvider extends ServiceProvider
             /** @var \Illuminate\Database\Schema\Blueprint $this */
             return $this->addColumn('efficientUuid', $column);
         });
+
+        Blueprint::macro(
+            'efficientUuidFor',
+            /**
+             * @param  \Illuminate\Database\Eloquent\Model|string  $model
+             * @param string|null $column
+             * @return ColumnDefinition
+             */
+            function ($model, ?string $column = null): ColumnDefinition {
+                if (is_string($model)) {
+                    $model = new $model;
+                }
+                /** @var \Illuminate\Database\Schema\Blueprint $this */
+                return $this->addColumn('efficientUuid', $column ?: $model->getForeignKey());
+            }
+        );
     }
 }
