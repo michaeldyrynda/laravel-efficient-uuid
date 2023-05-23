@@ -46,7 +46,7 @@ There is nothing special needed for this to function, simply declare a `uuid` co
 ```php
 Schema::create('posts', function (Blueprint $table) {
     $table->increments('id');
-    $table->efficientUuid('uuid')->index();
+    $table->efficientUuid('uuid')->unique();
     $table->string('title');
     $table->text('body');
     $table->timestamps();
