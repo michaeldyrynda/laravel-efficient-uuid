@@ -3,6 +3,7 @@
     "type": "utility",
     "description": "A package to extend Laravel migrations adding a more efficient storage of UUID fields in your database",
     "license": "MIT",
+    "abandoned": "dyrynda/laravel-model-uuid",
     "authors": [
         {
             "name": "Michael Dyrynda",
