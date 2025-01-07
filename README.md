@@ -6,6 +6,9 @@
 [![License](https://poser.pugx.org/dyrynda/laravel-efficient-uuid/license)](https://packagist.org/packages/dyrynda/laravel-efficient-uuid)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/michaeldyrynda/laravel-efficient-uuid)
 
+> [!IMPORTANT]
+> If you need support for Laravel 11.x and above, the functionality of this package has been combined with [laravel-model-uuid](https://github.com/michaeldyrynda/laravel-model-uuid).
+
 ## Introduction
 
 This package extends the default grammar file for the given MySQL connection adding an `efficientUuid` blueprint method that creates a `binary(16)` field.
@@ -39,7 +42,7 @@ Register the service provider in your `config/app.php` configuration file:
 ],
 ```
 
-### Migrations 
+### Migrations
 
 There is nothing special needed for this to function, simply declare a `uuid` column type in your migration files. If you plan on querying against the UUID column, it is recommended that you index the column, but avoid making it the primary key.
 
@@ -53,7 +56,7 @@ Schema::create('posts', function (Blueprint $table) {
 });
 ```
 
-### Casting 
+### Casting
 
 You will need to add a cast to your model when using [laravel-model-uuid](https://github.com/michaeldyrynda/laravel-model-uuid) in order to correctly set and retrieve UUID from your MySQL database with binary fields.
 
